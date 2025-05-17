@@ -1,1 +1,17 @@
-<input-list styleClass=""/>
+<!-- <input-list styleClass=""/> -->
+
+<div (contextmenu)="openContextMenu($event)" class="container">
+  Haz clic derecho aquí
+</div>
+
+<div
+  *ngIf="contextMenuVisible"
+  [ngStyle]="{ top: contextMenuPosition.y + 'px', left: contextMenuPosition.x + 'px' }"
+  class="context-menu"
+  (click)="closeContextMenu()"
+>
+  <ul>
+    <li (click)="accion('Opción 1')">Opción 1</li>
+    <li (click)="accion('Opción 2')">Opción 2</li>
+  </ul>
+</div>
